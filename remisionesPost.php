@@ -1,7 +1,6 @@
 <?php
 
 $connect = new PDO("mysql:host=localhost; dbname=laminado", "root", "");
-echo 'ok';
 
 /*function get_total_row($connect)
 {
@@ -85,8 +84,12 @@ if($total_data > 0)
       <td>'.$row["total"].'</td>
       <td>'.$row["id_remision"].'</td>
       <td>EDIT</td>
-      <td>DROP</td>
-      <td><a href= "reporte.php?id='.$row["id_remision"].'";   target="_blank">PDF</a></td>
+      <td>
+      <a href= "rerem_acporte.php?id='.$row["id_remision"].'";   target="_blank">EDIT</a>
+      </td>
+      <td>
+      <a href= "reporte.php?id='.$row["id_remision"].'";   target="_blank">PDF</a>
+      </td>
     </tr>
     ';
   }
