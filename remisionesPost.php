@@ -85,7 +85,7 @@ if($total_data > 0)
       <td>'.$row["id_remision"].'</td>
       <td>EDIT</td>
       <td>
-      <a href= "rerem_acporte.php?id='.$row["id_remision"].'";   target="_blank">EDIT</a>
+      <a href= "rem_ac.php?id='.$row["id_remision"].'";   target="_blank">EDIT</a>
       </td>
       <td>
       <a href= "reporte.php?id='.$row["id_remision"].'";   target="_blank">PDF</a>
