@@ -86,7 +86,7 @@ if($total_data > 0)
       <td>'.$row["id_remision"].'</td>
       <td>EDIT</td>
       <td>DROP</td>
-      <td><a href= "reporte.php?id=$row[id_remision];   target="_blank">PDF</a></td>
+      <td><a href= "reporte.php?id='.$row["id_remision"].'";   target="_blank">PDF</a></td>
     </tr>
     ';
   }
