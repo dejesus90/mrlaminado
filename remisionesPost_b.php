@@ -27,7 +27,7 @@ else
 }
 
 $query = "
-SELECT * FROM remision WHERE tipo='R' AND estatus=1
+SELECT * FROM remision WHERE tipo='B' AND estatus=1
 ";
 
 if($_POST['query'] != '')

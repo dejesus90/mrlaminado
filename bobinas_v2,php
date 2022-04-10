@@ -52,7 +52,7 @@
     $(document).on('click', '.page-link', function(){
       var page = $(this).data('page_number');
       var query = $('#search_box').val();
-      load_data(page,'R',query);
+      load_data(page,'B',query);
     });
 
     $('#search_box').keyup(function(){

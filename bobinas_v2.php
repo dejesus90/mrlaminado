@@ -10,12 +10,12 @@
   <body>
     <br />
     <div class="container">
-      <h3 align="center">Buscar Remisones</h3>
+      <h3 align="center">Buscar Boinas</h3>
       <br />
       <div class="card">
         <div class="card-header">
             Lista Remisiones
-            <a class="float-right" href="bobinas_v2">  Bobinas</a><a class="float-right" href="/menuprincipal.php">Inicio / </a>
+            <a class="float-right" href="/bobinas_v2">  Bobinas</a><a class="float-right" href="/menuprincipal.php">Inicio / </a>
 
         </div>
         <div class="card-body">
@@ -33,15 +33,15 @@
 <script>
   $(document).ready(function(){
 
-    load_data(1,'R');
+    load_data(1,'B');
 
-    function load_data(page,tipo="R",query = '')
+    function load_data(page,tipo='B',query = '')
     {
-        console.log('ok')
       $.ajax({
-        url:"remisionesPost.php",
+        url:"remisionesPost_b.php",
         method:"POST",
-        data:{page:page, tipo:tipo,query:query},
+        data:{page:page, tipo:tipo,query:quer},
+
         success:function(data)
         {
           $('#dynamic_content').html(data);
@@ -52,12 +52,12 @@
     $(document).on('click', '.page-link', function(){
       var page = $(this).data('page_number');
       var query = $('#search_box').val();
-      load_data(page,'R',query);
+      load_data(page,"B",query);
     });
 
     $('#search_box').keyup(function(){
       var query = $('#search_box').val();
-      load_data(1,"R",query);
+      load_data(1, "B",query);
     });
 
     //cuando de clic en eliminar

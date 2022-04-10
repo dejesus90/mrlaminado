@@ -127,7 +127,7 @@ a:hover {
      <h3>Remisiones</h3>
      <table width="300" border="0" align="right">
        <tr>
-         <td width="194" scope="col"><h5><a href="remision_l.php"><span style="float:right;">Ver Registros<i><img src="Imagnes/ver.png" alt="" width="25" height="25"/></i></span></a></h5></td>
+         <td width="194" scope="col"><h5><a href="remisiones_v2.php"><span style="float:right;">Ver Registros<i><img src="Imagnes/ver.png" alt="" width="25" height="25"/></i></span></a></h5></td>
          <td width="90" scope="col"><h5><a href="menuprincipal.php"><span style="float:right;">Menu<i><img src="Imagnes/casa.png" alt="" width="25" height="21" /></i></span></a></h5></td>
        </tr>
        <tr>
