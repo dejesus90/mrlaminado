@@ -169,15 +169,20 @@ function act(rfc)
       <div>
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Remisiones</a></li>
-          <li role="presentation" id="bobinaslink"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Bobinas</a></li>
+          <li role="presentation" id="bobinaslink"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Remisiones</a></li>
+          <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Bobinas</a></li>
         </ul>
 
         <!-- Tab panes -->
         <div class="tab-content">
-          <div role="tabpanel" class="tab-pane active" id="home">
-            <h3>Remisiones</h3>
-            <table border="1"  cellspacing="1" id="tabla1" class="table table-condensed table-bordered">
+          
+          <div role="tabpanel" class="tab-pane active" id="profile">
+            <h3>Bobinas</h3>
+            <?php
+            $resz2=mysqli_query($mysqli,"SELECT * FROM remision where tipo='B' group by id ORDER BY id DESC");
+            ?>
+
+            <table border="1"  cellspacing="1"  id="tabla1" class="table table-condensed table-bordered">
               <thead class="thead">
                 <tr>
                   <td align="center">Fecha</td>
@@ -191,21 +196,22 @@ function act(rfc)
                   <td>Tipo Remision</td>
                   <td>Editar</td>
                   <td>Eliminar</td>
-                  <td>PDFgggg</td>
+                  <td>PDF</td>
                 </tr>
               </thead>
               <tbody>
                 <?php
-                while ( $resz1=mysqli_fetch_array($resz)) {
-                  // echo $resz1[0].'<br>';
-                  $res=mysqli_query($mysqli,"SELECT * FROM remision WHERE id=$resz1[11] and tipo='R' limit 1 ");
+                while ( $resz1=mysqli_fetch_array($resz2)) {
+                  $res=mysqli_query($mysqli,"SELECT * FROM remision WHERE id=$resz1[11]  and tipo='B' limit 1");
                   $cont=0;
-                  while ($res1=mysqli_fetch_array($res)){
+                  $count=mysqli_query($mysqli,"SELECT COUNT(*) FROM remision where id=$resz1[11] ");
+                  $res_count=mysqli_fetch_array($count);
 
+                  while ($res1=mysqli_fetch_array($res)){
                     ?>
                     <tr>
                       <td bgcolor="#DADADA" onclick='rep(<?php echo $res1[11];?>);'><?php echo $res1[1];?></td>
-                      <td bgcolor="#DADADA" onclick='rep(<?php echo $res1[11];?>);'><?php echo $res1[4];?></td>
+                      <td bgcolor="#DADADA" onclick='rep(<?php echo $res1[11];?>);'><?php echo $res_count[0];?></td>
                       <td bgcolor="#DADADA" onclick='rep(<?php echo $res1[11];?>);'><?php echo $res1[5];?></td>
                       <td bgcolor="#DADADA" onclick='rep(<?php echo $res1[11];?>);'><?php echo $res1[6];?></td>
                       <td bgcolor="#DADADA" onclick='rep(<?php echo $res1[11];?>);'><?php echo $res1[7];?></td>
@@ -240,7 +246,7 @@ function act(rfc)
                                 <input type="password" class="form-control" id="pass<?php echo $res1[11] ?>" autocomplete="off">
                               </div>
                               <div class="modal-footer">
-                                <button type="button" class="btn btn-info" onclick="validar(<?php echo $res1[11] ?>)">Aceptar</button>
+                                <button type="button" class="btn btn-info" onclick="validar2(<?php echo $res1[11] ?>)">Aceptar</button>
                               </div>
                             </div>
                           </div>
@@ -274,7 +280,7 @@ function act(rfc)
                         </div>
                       </td>
                       <td valign="left" bgcolor="#CCCCCC">
-                        <a href= "reporte.php?id=<?php echo $res1[11];?>" target="_blank">Pdf</a>
+                        <a href= "reportebobina_pdf.php?id=<?php echo $res1[11];?>" target="_blank">Pdf</a>
                       </td>
                     </tr>
                     <?php
@@ -346,7 +352,8 @@ function eliminar_x(id){
 }
 
 
-  $(document).ready(function() {
+
+   $(document).ready(function() {
     $('#tabla1').DataTable({
         pageLength: 10,
         "searching": false
@@ -354,10 +361,9 @@ function eliminar_x(id){
     });
 
     $("#bobinaslink").click(function(){
-      window.location.href = 'bobinas_l.php';
+      window.location.href = 'remision_l.php';
     })
     
-  } );
-
+  } ); 
 </script>
 </html>
