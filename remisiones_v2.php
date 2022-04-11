@@ -15,7 +15,7 @@
       <div class="card">
         <div class="card-header">
             Lista Remisiones
-            <a class="float-right" href="bobinas_v2">  Bobinas</a><a class="float-right" href="/menuprincipal.php">Inicio / </a>
+            <a class="float-right" href="menuprincipal.php">Menu Principal </a>
 
         </div>
         <div class="card-body">
@@ -32,16 +32,14 @@
 </html>
 <script>
   $(document).ready(function(){
-
-    load_data(1,'R');
-
-    function load_data(page,tipo="R",query = '')
+    load_data(1);
+    function load_data(page,query = '',tipo='R')
     {
-        console.log('ok')
+      
       $.ajax({
         url:"remisionesPost.php",
         method:"POST",
-        data:{page:page, tipo:tipo,query:query},
+        data:{page:page,tipo:tipo,query:query},
         success:function(data)
         {
           $('#dynamic_content').html(data);
@@ -52,12 +50,12 @@
     $(document).on('click', '.page-link', function(){
       var page = $(this).data('page_number');
       var query = $('#search_box').val();
-      load_data(page,'R',query);
+      load_data(page,query);
     });
 
     $('#search_box').keyup(function(){
       var query = $('#search_box').val();
-      load_data(1,"R",query);
+      load_data(1,query);
     });
 
     //cuando de clic en eliminar

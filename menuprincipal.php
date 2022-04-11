@@ -129,6 +129,8 @@ a:active {
     <h4><a href="Remisiones.php">Remisiones</a></h4>
     <h4><a href="Rem_Bobinas.php">Rem-Bobinas</a></h4>
     <h4><a href="cotizar.php">Cotizacion</a></h4>
+	<h4><a href="bobinas_v3.php">Lista Bobinas</a></h4>
+	<h4><a href="remisiones_v2.php">Lista Remision</a></h4>
     <h4><a href="#"></a></h4>
     <h4><a href="Index.php">Salir</a></h4>
     <p>&nbsp;</p>

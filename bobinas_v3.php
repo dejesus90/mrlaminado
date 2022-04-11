@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Remisiones</title>
+    <title>Bobinas</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/placeholder-loading/dist/css/placeholder-loading.min.css">
@@ -10,12 +10,12 @@
   <body>
     <br />
     <div class="container">
-      <h3 align="center">Buscar Remisones</h3>
+      <h3 align="center">Buscar Bobinas</h3>
       <br />
       <div class="card">
         <div class="card-header">
-            Lista Remisiones
-            <a class="float-right" href="bobinas_v2">  Bobinas</a><a class="float-right" href="/menuprincipal.php">Inicio / </a>
+            Lista Bobinas
+            <a class="float-right" href="menuprincipal.php">Menu Principal </a>
 
         </div>
         <div class="card-body">
@@ -33,11 +33,10 @@
 <script>
   $(document).ready(function(){
 
-    load_data(1,'R');
+    load_data(1);
 
-    function load_data(page,tipo="R",query = '')
+    function load_data(page,query = '',tipo='B')
     {
-        console.log('ok')
       $.ajax({
         url:"remisionesPost.php",
         method:"POST",
@@ -52,12 +51,12 @@
     $(document).on('click', '.page-link', function(){
       var page = $(this).data('page_number');
       var query = $('#search_box').val();
-      load_data(page,'B',query);
+      load_data(pag,'B',query);
     });
 
     $('#search_box').keyup(function(){
       var query = $('#search_box').val();
-      load_data(1,"R",query);
+      load_data(1,'B',query);
     });
 
     //cuando de clic en eliminar

@@ -25,9 +25,9 @@ else
 {
   $start = 0;
 }
-
+$tipo = $_POST['tipo'];
 $query = "
-SELECT * FROM remision WHERE tipo='B' AND estatus=1
+SELECT * FROM remision WHERE tipo='$tipo' AND estatus=1
 ";
 
 if($_POST['query'] != '')
